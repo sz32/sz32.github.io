@@ -46,38 +46,57 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Get the section that is most in view
-    function getCurrentSection() {
+    // Calculate section position relative to viewport
+    function getSectionPosition(section) {
+        const rect = section.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+        const visiblePercentage = Math.max(0, visibleHeight) / viewportHeight;
+        const centerPosition = rect.top + (rect.height / 2);
+        const distanceFromCenter = Math.abs(centerPosition - (viewportHeight / 2));
+        
+        return {
+            visiblePercentage,
+            distanceFromCenter
+        };
+    }
+
+    // Get the most visible section with improved accuracy
+    function getMostVisibleSection() {
         let maxVisibleSection = null;
-        let maxVisibleAmount = 0;
+        let maxVisibility = 0;
+        let minDistance = Infinity;
 
         sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
+            const { visiblePercentage, distanceFromCenter } = getSectionPosition(section);
             
-            // Calculate how much of the section is visible
-            const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
-            const visibleAmount = Math.max(0, visibleHeight) / viewportHeight;
-
-            if (visibleAmount > maxVisibleAmount) {
-                maxVisibleAmount = visibleAmount;
+            // Prioritize sections that are both visible and close to the center
+            const visibility = visiblePercentage * (1 / (1 + distanceFromCenter * 0.001));
+            
+            if (visibility > maxVisibility) {
+                maxVisibility = visibility;
                 maxVisibleSection = section;
+                minDistance = distanceFromCenter;
             }
         });
 
         return maxVisibleSection;
     }
 
-    // Update active navigation item based on scroll position
+    // Update active navigation item
     function updateActiveNavItem() {
-        const currentSection = getCurrentSection();
+        const currentSection = getMostVisibleSection();
         
         if (currentSection) {
             const currentSectionId = currentSection.getAttribute('id');
             navItems.forEach(item => {
                 const itemHref = item.getAttribute('href').substring(1);
                 if (itemHref === currentSectionId) {
-                    item.classList.add('active');
+                    if (!item.classList.contains('active')) {
+                        item.classList.add('active');
+                        // Add smooth transition effect
+                        item.style.transition = 'all 0.3s ease';
+                    }
                 } else {
                     item.classList.remove('active');
                 }
@@ -85,52 +104,59 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Throttle function to limit scroll event firing
+    // Throttle function to optimize scroll performance
     function throttle(func, limit) {
         let inThrottle;
+        let lastFunc;
+        let lastRan;
+        
         return function() {
-            const args = arguments;
             const context = this;
+            const args = arguments;
+            
             if (!inThrottle) {
                 func.apply(context, args);
+                lastRan = Date.now();
                 inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
+            } else {
+                clearTimeout(lastFunc);
+                lastFunc = setTimeout(function() {
+                    if ((Date.now() - lastRan) >= limit) {
+                        func.apply(context, args);
+                        lastRan = Date.now();
+                    }
+                }, limit - (Date.now() - lastRan));
             }
-        }
+        };
     }
 
-    // Add scroll event listener with throttling
+    // Add scroll event listener with improved throttling
     window.addEventListener('scroll', throttle(updateActiveNavItem, 100));
 
-    // Initial call to set active nav item
+    // Add resize event listener to handle window resizing
+    window.addEventListener('resize', throttle(updateActiveNavItem, 100));
+
+    // Initial call to set active nav item on page load
     updateActiveNavItem();
 
-    // Intersection Observer for better performance
+    // Intersection Observer for optimized performance
     const observerOptions = {
         root: null,
-        rootMargin: '-20% 0px -20% 0px',
-        threshold: [0.25, 0.5, 0.75]
+        rootMargin: '-10% 0px -10% 0px',
+        threshold: Array.from({ length: 11 }, (_, i) => i * 0.1) // More granular thresholds
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-                const sectionId = entry.target.getAttribute('id');
-                navItems.forEach(item => {
-                    const itemHref = item.getAttribute('href').substring(1);
-                    if (itemHref === sectionId) {
-                        item.classList.add('active');
-                    } else {
-                        item.classList.remove('active');
-                    }
-                });
+            if (entry.isIntersecting) {
+                // Only update if the section is significantly visible
+                if (entry.intersectionRatio > 0.4) {
+                    updateActiveNavItem();
+                }
             }
         });
     }, observerOptions);
 
     // Observe all sections
     sections.forEach(section => observer.observe(section));
-
-    // Log sections for debugging
-    console.log('Available sections:', Array.from(sections).map(s => s.id));
 });

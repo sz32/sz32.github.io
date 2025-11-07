@@ -6,7 +6,7 @@ function doPost(e) {
     
     // Get the active spreadsheet and sheet
     const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = ss.getSheetByName('Contact Form Responses') || ss.insertSheet('Contact Form Responses');
+    const sheet = ss.getSheetByName('portfolio invites') || ss.insertSheet('Sheet');
     
     // Set headers if sheet is empty
     if (sheet.getLastRow() === 0) {

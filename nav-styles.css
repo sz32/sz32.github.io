@@ -1,0 +1,100 @@
+/* Add this to the top of your existing CSS file */
+
+/* Vertical Navigation Overlay */
+.vertical-nav {
+    position: fixed;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px 5px;
+    border-radius: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.vertical-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.vertical-nav .nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #2c3e50;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.vertical-nav .nav-item i {
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.vertical-nav .nav-item:hover,
+.vertical-nav .nav-item.active {
+    background: #3498db;
+    color: white;
+    transform: translateX(5px);
+}
+
+.vertical-nav .nav-item:hover i,
+.vertical-nav .nav-item.active i {
+    transform: scale(1.1);
+}
+
+.vertical-nav .tooltip {
+    position: absolute;
+    left: 60px;
+    background: #3498db;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+}
+
+.vertical-nav .tooltip::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #3498db transparent transparent;
+}
+
+.vertical-nav .nav-item:hover .tooltip {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    .vertical-nav {
+        left: 10px;
+    }
+    
+    .vertical-nav .nav-item {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .vertical-nav .nav-item i {
+        font-size: 1rem;
+    }
+}

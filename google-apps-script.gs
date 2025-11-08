@@ -4,6 +4,10 @@ function doPost(e) {
     // Parse the incoming data
     const data = JSON.parse(e.postData.contents);
     
+    // Format timestamp to be more readable
+    const timestamp = new Date(data.timestamp);
+    const formattedTimestamp = Utilities.formatDate(timestamp, Session.getScriptTimeZone(), 'dd/MM/yyyy, hh:mm:ss a');
+
     // Get the active spreadsheet and sheet
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const sheet = ss.getSheetByName('portfolio invites') || ss.insertSheet('Sheet');
@@ -15,7 +19,7 @@ function doPost(e) {
     
     // Append the form data
     sheet.appendRow([
-      data.timestamp,
+      formattedTimestamp,
       data.name,
       data.email,
       data.subject,
@@ -30,7 +34,7 @@ function doPost(e) {
       Email: ${data.email}
       Subject: ${data.subject}
       Message: ${data.message}
-      Timestamp: ${data.timestamp}
+      Timestamp: ${formattedTimestamp}
     `;
     
     GmailApp.sendEmail(

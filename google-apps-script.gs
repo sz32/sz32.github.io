@@ -10,8 +10,13 @@ function doPost(e) {
 
     // Get the active spreadsheet and sheet
     const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = ss.getSheetByName('portfolio invites') || ss.insertSheet('Sheet');
-    
+    let sheet = ss.getSheetByName('portfolio invites');
+
+    // Create the sheet if it doesn't exist
+    if (!sheet) {
+      sheet = ss.insertSheet('portfolio invites');
+    }
+
     // Set headers if sheet is empty
     if (sheet.getLastRow() === 0) {
       sheet.appendRow(['Timestamp', 'Name', 'Email', 'Subject', 'Message']);

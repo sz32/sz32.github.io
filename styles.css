@@ -1235,9 +1235,22 @@ footer {
     background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
     cursor: not-allowed;
     box-shadow: none;
+    pointer-events: none;
 }
 
 .contact-form.submitting .submit-btn::before {
+    display: none;
+}
+
+.submit-btn .btn-text,
+.submit-btn .btn-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-loading {
     display: none;
 }
 
@@ -1252,7 +1265,6 @@ footer {
     to {
         transform: rotate(360deg);
     }
-    left: 100%;
 }
 /* Input Validation Styles */
 .contact-form input.error,
@@ -1312,18 +1324,15 @@ footer {
     display: block;
     background: rgba(231, 76, 60, 0.1);
     color: #e74c3c;
-    border: 1px solid #e74c3c;
-}
-
-.btn-loading {
     display: none;
+    display: none !important;
 }
 
 .contact-form.submitting .btn-text {
     display: none;
-}
+    display: flex !important;
 
-.contact-form.submitting .btn-loading {
+    gap: 10px;
     display: flex;
     align-items: center;
     gap: 8px;

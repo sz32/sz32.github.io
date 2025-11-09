@@ -1,5 +1,5 @@
 // Enhanced Contact Form Handler with Validation and Animations
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwB_1WK1X9PcvFolkUoZGGhbt8Q2TgUZM3LSpW6UdVyRpFTNkEt9i_SwZV_gHApKy8gNA/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwa7KNGIy12nsUrz0o4KVbXERKRdWMSFlr6ZZKUEpj3hIziK05GOT4q3UY7Vs5S3gH_rg/exec';
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
@@ -140,6 +140,8 @@ async function handleSubmit(event) {
     form.classList.add('submitting');
     hideStatusMessage();
 
+    console.log('Form submitting - loading animation should be visible');
+
     try {
         const response = await fetch(SCRIPT_URL, {
             method: 'POST',
@@ -152,14 +154,20 @@ async function handleSubmit(event) {
         });
 
         if (response.ok) {
-            showStatusMessage('Thank you! Your message has been sent successfully. I\'ll get back to you soon!', 'success');
-            form.reset();
+            const result = await response.json();
 
-            // Remove validation classes
-            const inputs = form.querySelectorAll('input, textarea');
-            inputs.forEach(input => {
-                input.classList.remove('error', 'success');
-            });
+            if (result.success) {
+                showStatusMessage('Thank you! Your message has been sent successfully. I\'ll get back to you soon!', 'success');
+                form.reset();
+
+                // Remove validation classes
+                const inputs = form.querySelectorAll('input, textarea');
+                inputs.forEach(input => {
+                    input.classList.remove('error', 'success');
+                });
+            } else {
+                throw new Error(result.error || 'Failed to send message');
+            }
         } else {
             throw new Error('Failed to send message');
         }

@@ -1,17 +1,28 @@
-/* Add this to the top of your existing CSS file */
+/* Modern Professional Vertical Navigation */
 
-/* Vertical Navigation Overlay */
+/* Main Navigation Container */
 .vertical-nav {
     position: fixed;
+    right: 30px;
     top: 50%;
-    left: 30px;
     transform: translateY(-50%);
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 15px 5px;
-    border-radius: 30px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(52, 152, 219, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(52, 152, 219, 0.25);
+    border-radius: 50px;
+    padding: 15px 10px;
+    box-shadow: 0 8px 32px rgba(52, 152, 219, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vertical-nav:hover {
+    background: rgba(52, 152, 219, 0.18);
+    box-shadow: 0 12px 48px rgba(52, 152, 219, 0.25),
+                inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.02);
 }
 
 .vertical-nav ul {
@@ -20,81 +31,265 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
+.vertical-nav li {
+    position: relative;
+}
+
+/* Navigation Items */
 .vertical-nav .nav-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    color: #2c3e50;
+    color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.vertical-nav .nav-item::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.vertical-nav .nav-item::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
 }
 
 .vertical-nav .nav-item i {
-    font-size: 1.2rem;
+    font-size: 20px;
+    z-index: 1;
     transition: all 0.3s ease;
 }
 
-.vertical-nav .nav-item:hover,
+/* Hover State */
+.vertical-nav .nav-item:hover {
+    color: #ffffff;
+    transform: translateX(-8px) scale(1.1);
+    box-shadow: 0 4px 20px rgba(52, 152, 219, 0.4);
+}
+
+.vertical-nav .nav-item:hover::before {
+    transform: scale(1);
+}
+
+.vertical-nav .nav-item:hover::after {
+    opacity: 1;
+}
+
+.vertical-nav .nav-item:hover i {
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* Active State */
 .vertical-nav .nav-item.active {
-    background: #3498db;
-    color: white;
-    transform: translateX(5px);
+    color: #ffffff;
+    background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6),
+                inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    animation: pulse-glow 3s ease-in-out infinite;
 }
 
-.vertical-nav .nav-item:hover i,
+.vertical-nav .nav-item.active::after {
+    opacity: 1;
+}
+
 .vertical-nav .nav-item.active i {
-    transform: scale(1.1);
+    animation: bounce-icon 0.6s ease-in-out;
 }
 
-.vertical-nav .tooltip {
-    position: absolute;
-    left: 60px;
-    background: #3498db;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    white-space: nowrap;
-    pointer-events: none;
-    opacity: 0;
-    transform: translateX(-20px);
-    transition: all 0.3s ease;
-}
-
-.vertical-nav .tooltip::before {
+/* Active Indicator Bar */
+.vertical-nav li:has(.nav-item.active)::before {
     content: '';
     position: absolute;
-    left: -5px;
+    right: -8px;
     top: 50%;
     transform: translateY(-50%);
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent #3498db transparent transparent;
+    width: 4px;
+    height: 28px;
+    background: linear-gradient(180deg, #3498db 0%, #2980b9 100%);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.6);
+    animation: slide-in 0.3s ease-out;
+}
+
+/* Tooltips */
+.vertical-nav .tooltip {
+    position: absolute;
+    right: 65px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25),
+                inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.3px;
+}
+
+.vertical-nav .tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: #2c3e50;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .vertical-nav .nav-item:hover .tooltip {
     opacity: 1;
-    transform: translateX(0);
+    visibility: visible;
+    right: 75px;
+}
+
+/* Animations */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6),
+                    0 0 0 0 rgba(52, 152, 219, 0.8),
+                    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6),
+                    0 0 0 8px rgba(52, 152, 219, 0),
+                    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    }
+}
+
+@keyframes bounce-icon {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.2) rotate(-5deg);
+    }
+    75% {
+        transform: scale(0.9) rotate(5deg);
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(-50%) scaleY(0);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-50%) scaleY(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .vertical-nav {
+        right: 20px;
+        padding: 12px 8px;
+    }
+
+    .vertical-nav .nav-item {
+        width: 44px;
+        height: 44px;
+    }
+
+    .vertical-nav .nav-item i {
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 768px) {
     .vertical-nav {
-        left: 10px;
+        right: 15px;
+        padding: 10px 6px;
+        border-radius: 40px;
     }
     
     .vertical-nav .nav-item {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
     }
     
     .vertical-nav .nav-item i {
-        font-size: 1rem;
+        font-size: 16px;
+    }
+
+    .vertical-nav .tooltip {
+        display: none;
+    }
+
+    .vertical-nav li:has(.nav-item.active)::before {
+        right: -6px;
+        width: 3px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vertical-nav {
+        right: 10px;
+        padding: 8px 5px;
+        gap: 8px;
+    }
+
+    .vertical-nav ul {
+        gap: 8px;
+    }
+
+    .vertical-nav .nav-item {
+        width: 36px;
+        height: 36px;
+    }
+
+    .vertical-nav .nav-item i {
+        font-size: 14px;
+    }
+}
+
+/* Smooth Scrolling Enhancement */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Dark Theme Support */
+@media (prefers-color-scheme: dark) {
+    .vertical-nav {
+        background: rgba(20, 20, 30, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .vertical-nav:hover {
+        background: rgba(30, 30, 45, 0.8);
     }
 }

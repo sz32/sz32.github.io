@@ -1,5 +1,5 @@
 // Enhanced Contact Form Handler with Validation and Animations
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxkg3RMgdbQfwirZyNbO1gvpV9TLOacqBigUml-HHcTds1SSyyQSug-9hSBA4PeNbvIFQ/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwB_1WK1X9PcvFolkUoZGGhbt8Q2TgUZM3LSpW6UdVyRpFTNkEt9i_SwZV_gHApKy8gNA/exec';
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
@@ -118,7 +118,8 @@ async function handleSubmit(event) {
         name: document.getElementById('name').value.trim(),
         email: document.getElementById('email').value.trim(),
         subject: document.getElementById('subject').value.trim(),
-        message: document.getElementById('message').value.trim()
+        message: document.getElementById('message').value.trim(),
+        timestamp: new Date().toISOString()
     };
 
     // Basic validation
@@ -140,7 +141,6 @@ async function handleSubmit(event) {
     hideStatusMessage();
 
     try {
-        // Simulate API call (replace with your actual API endpoint)
         const response = await fetch(SCRIPT_URL, {
             method: 'POST',
             headers: {

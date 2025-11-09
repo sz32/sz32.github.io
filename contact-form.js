@@ -1,5 +1,5 @@
 // Enhanced Contact Form Handler with Validation and Animations
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwa2IiXpRyLiMIIGiu6zLep4PYCOj-yU61cdM9YXlgFzvp6ydmQW3W6Wws-3jHW-KyblA/exec";
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxkg3RMgdbQfwirZyNbO1gvpV9TLOacqBigUml-HHcTds1SSyyQSug-9hSBA4PeNbvIFQ/exec';
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');

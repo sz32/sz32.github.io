@@ -1,0 +1,679 @@
+{
+  "meta": {
+    "title": "Zeel Solanki - Senior Software Engineer",
+    "lastUpdated": "2025-11-10"
+  },
+  "sectionOrder": [
+    "profile",
+    "skills",
+    "experience",
+    "projects",
+    "blog",
+    "achievements",
+    "certifications",
+    "education",
+    "work-process",
+    "statistics",
+    "contact"
+  ],
+  "navigation": [
+    {
+      "id": "profile",
+      "label": "Profile",
+      "icon": "fas fa-user"
+    },
+    {
+      "id": "skills",
+      "label": "Skills",
+      "icon": "fas fa-code"
+    },
+    {
+      "id": "experience",
+      "label": "Experience",
+      "icon": "fas fa-briefcase"
+    },
+    {
+      "id": "projects",
+      "label": "Projects",
+      "icon": "fas fa-project-diagram"
+    },
+    {
+      "id": "blog",
+      "label": "Technical Writing",
+      "icon": "fab fa-medium"
+    },
+    {
+      "id": "achievements",
+      "label": "Achievements",
+      "icon": "fas fa-trophy"
+    },
+    {
+      "id": "certifications",
+      "label": "Certifications",
+      "icon": "fas fa-certificate"
+    },
+    {
+      "id": "education",
+      "label": "Education",
+      "icon": "fas fa-graduation-cap"
+    },
+    {
+      "id": "work-process",
+      "label": "Work Process",
+      "icon": "fas fa-lightbulb"
+    },
+    {
+      "id": "statistics",
+      "label": "Statistics",
+      "icon": "fas fa-chart-line"
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "icon": "fas fa-envelope"
+    }
+  ],
+  "profile": {
+    "name": "Zeel Solanki",
+    "title": "Senior Software Engineer",
+    "profileImage": "images/profile.jpg",
+    "typedRoles": [
+      "Android Developer",
+      "SDK Developer",
+      "Team Leader",
+      "Problem Solver"
+    ],
+    "contactInfo": [
+      {
+        "icon": "fas fa-phone",
+        "value": "9723872353"
+      },
+      {
+        "icon": "fas fa-envelope",
+        "value": "solankizeel91@gmail.com"
+      },
+      {
+        "icon": "fas fa-map-marker-alt",
+        "value": "Surat, Gujarat"
+      }
+    ],
+    "description": "Highly skilled and experienced Android developer with 6+ years of experience in developing and designing mobile applications. Proficient in Java and Kotlin, with a strong understanding of Android SDK and mobile development best practices. Experience in Agile development methodologies. Strong problem-solving skills and ability to work well in a team environment."
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "categories": [
+      {
+        "name": "Programming Languages",
+        "items": [
+          "Kotlin",
+          "Java",
+          "Kotlin Multiplatform (KMP)",
+          "XML",
+          "SQL"
+        ]
+      },
+      {
+        "name": "Architecture & Patterns",
+        "items": [
+          "MVVM with Clean Architecture",
+          "MVP",
+          "MVC",
+          "MultiModularization",
+          "Repository Pattern",
+          "Dependency Injection",
+          "SOLID Principles",
+          "Design Patterns"
+        ]
+      },
+      {
+        "name": "Android Development",
+        "items": [
+          "Jetpack Compose",
+          "Custom Views",
+          "Material Design",
+          "App Widgets",
+          "Background Processing",
+          "Push Notifications",
+          "App Security",
+          "App Performance"
+        ]
+      },
+      {
+        "name": "Android Framework",
+        "items": [
+          "Activity Lifecycle",
+          "Fragment Management",
+          "Content Providers",
+          "Service Components",
+          "Broadcast Receivers",
+          "Navigation Components",
+          "WorkManager",
+          "DataStore"
+        ]
+      },
+      {
+        "name": "Libraries & SDKs",
+        "items": [
+          "Room Database",
+          "Retrofit",
+          "Koin",
+          "Dagger-Hilt",
+          "Firebase Suite",
+          "Coroutines",
+          "Flow",
+          "RxJava",
+          "Glide/Coil",
+          "ExoPlayer"
+        ]
+      },
+      {
+        "name": "Testing",
+        "items": [
+          "JUnit",
+          "Mockito",
+          "Espresso",
+          "UI Automator",
+          "MockK",
+          "Integration Testing",
+          "TDD"
+        ]
+      },
+      {
+        "name": "AI Development Tools",
+        "icon": true,
+        "items": [
+          {
+            "name": "GitHub Copilot",
+            "icon": "fas fa-robot"
+          },
+          {
+            "name": "ChatGPT",
+            "icon": "fas fa-brain"
+          },
+          {
+            "name": "Claude AI",
+            "icon": "fas fa-cloud"
+          },
+          {
+            "name": "Gemini",
+            "icon": "fas fa-code"
+          },
+          {
+            "name": "Perplexity",
+            "icon": "fas fa-search"
+          },
+          {
+            "name": "Grok",
+            "icon": "fas fa-magic"
+          }
+        ],
+        "benefits": [
+          "Code Generation",
+          "Code Review",
+          "Documentation",
+          "Problem Solving"
+        ]
+      }
+    ]
+  },
+  "tools": {
+    "title": "Development Tools",
+    "categories": [
+      {
+        "name": "IDE & Editors",
+        "items": [
+          {
+            "name": "Android Studio",
+            "icon": "fas fa-laptop-code"
+          },
+          {
+            "name": "IntelliJ IDEA",
+            "icon": "fas fa-code"
+          },
+          {
+            "name": "Visual Studio Code",
+            "icon": "fas fa-edit"
+          }
+        ]
+      },
+      {
+        "name": "Version Control",
+        "items": [
+          {
+            "name": "Git",
+            "icon": "fab fa-git-alt"
+          },
+          {
+            "name": "GitHub",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "GitLab",
+            "icon": "fab fa-gitlab"
+          },
+          {
+            "name": "Bitbucket",
+            "icon": "fab fa-bitbucket"
+          }
+        ]
+      },
+      {
+        "name": "CI/CD & DevOps",
+        "items": [
+          {
+            "name": "GitHub Actions",
+            "icon": "fab fa-github"
+          },
+          {
+            "name": "CircleCI",
+            "icon": "fas fa-circle"
+          },
+          {
+            "name": "Google Play Console",
+            "icon": "fab fa-google-play"
+          }
+        ]
+      },
+      {
+        "name": "Project Management",
+        "items": [
+          {
+            "name": "Jira",
+            "icon": "fab fa-jira"
+          },
+          {
+            "name": "Trello",
+            "icon": "fab fa-trello"
+          },
+          {
+            "name": "Confluence",
+            "icon": "fas fa-clipboard-list"
+          }
+        ]
+      },
+      {
+        "name": "Analytics & Monitoring",
+        "items": [
+          {
+            "name": "Firebase Analytics",
+            "icon": "fas fa-chart-line"
+          },
+          {
+            "name": "Crashlytics",
+            "icon": "fas fa-bug"
+          },
+          {
+            "name": "Android Profiler",
+            "icon": "fas fa-tachometer-alt"
+          },
+          {
+            "name": "Google Analytics",
+            "icon": "fas fa-chart-bar"
+          }
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "jobs": [
+      {
+        "company": "Full Creative",
+        "location": "Chennai",
+        "position": "Senior Software Engineer (Module Lead)",
+        "duration": "Nov 2021 - Current",
+        "responsibilities": [
+          "Led a team of developers in the design and development of mobile applications",
+          "Participated in code reviews and provided feedback to team members",
+          "Collaborated with cross-functional teams to define, design, and ship new features",
+          "Utilized agile development methodologies to ensure timely delivery of projects"
+        ]
+      },
+      {
+        "company": "Freelancer",
+        "location": "Bangalore",
+        "position": "Intermediate Android Developer",
+        "duration": "Mar 2021 - Oct 2021",
+        "responsibilities": [
+          "Successfully delivered high-quality mobile apps on time and within budget",
+          "Provided support and maintenance for mobile applications",
+          "Collaborated with diverse team members to deliver exceptional results"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Recent Projects",
+    "items": [
+      {
+        "name": "Enterprise SDK Development",
+        "type": "sdk-showcase",
+        "description": "Led the development of a comprehensive Multi-Module SDK that revolutionized app development across multiple brands, establishing a unified codebase for enhanced efficiency and maintainability.",
+        "sections": [
+          {
+            "title": "Technical Architecture",
+            "icon": "fas fa-layer-group",
+            "points": [
+              "Implemented modular architecture with clear separation of concerns (Core, UI, Network, Analytics)",
+              "Developed plug-and-play modules for features like authentication, chat, scheduling, and user management",
+              "Created abstract interfaces for seamless integration with different backend services",
+              "Implemented robust error handling and recovery mechanisms"
+            ]
+          },
+          {
+            "title": "Code-Level Optimization",
+            "icon": "fas fa-code",
+            "points": [
+              "Reduced codebase size by 40% through shared components and utilities",
+              "Implemented smart caching mechanisms reducing API calls by 60%",
+              "Created type-safe builders for configuration, reducing integration errors by 90%",
+              "Developed custom annotation processors for compile-time safety"
+            ]
+          },
+          {
+            "title": "Performance Improvements",
+            "icon": "fas fa-tachometer-alt",
+            "points": [
+              "Achieved 80% decrease in app crashes through proactive error handling",
+              "Reduced app startup time by 45% using lazy initialization",
+              "Implemented efficient memory management reducing RAM usage by 30%",
+              "Optimized network calls with custom interceptors and caching"
+            ]
+          },
+          {
+            "title": "Business Impact",
+            "icon": "fas fa-business-time",
+            "points": [
+              "60% reduction in development time for new features across all products",
+              "Successfully integrated into 5+ company applications (AnswerConnect, Anywhere App, AnswerForce, Setmore)",
+              "90% code reusability across different brand implementations",
+              "Standardized implementation reduced QA testing time by 50%"
+            ]
+          },
+          {
+            "title": "Developer Experience",
+            "icon": "fas fa-tools",
+            "points": [
+              "Created comprehensive documentation with integration examples",
+              "Developed sample applications demonstrating SDK capabilities",
+              "Implemented automated CI/CD pipeline for SDK releases",
+              "Built SDK analytics dashboard for monitoring usage and performance"
+            ]
+          }
+        ],
+        "techStack": [
+          "Kotlin",
+          "Jetpack Compose",
+          "MVVM",
+          "Clean Architecture",
+          "Coroutines",
+          "Flow",
+          "Dagger Hilt",
+          "Room DB",
+          "Unit Testing",
+          "CI/CD"
+        ],
+        "metrics": [
+          {
+            "value": "90%",
+            "label": "Code Reusability"
+          },
+          {
+            "value": "60%",
+            "label": "Faster Development"
+          },
+          {
+            "value": "80%",
+            "label": "Fewer Crashes"
+          }
+        ]
+      },
+      {
+        "name": "Slumber Bum",
+        "type": "regular",
+        "description": "IOT-based application with BLE device integration",
+        "responsibilities": [
+          "Implemented Bluetooth Core connections",
+          "Handled BLE characteristics and descriptors",
+          "Developed features for hardware interaction"
+        ]
+      }
+    ]
+  },
+  "blog": {
+    "title": "Technical Writing",
+    "posts": [
+      {
+        "title": "KMP: A Game Changer for Cross-Platform Development",
+        "description": "Explore how Kotlin Multiplatform (KMP) enables efficient cross-platform mobile development, sharing business logic across Android and iOS.",
+        "url": "https://medium.com/@solankizeel91/kmp-a-game-changer-for-cross-platform-development-fdace93fb1e7",
+        "icon": "fab fa-medium",
+        "delay": 0
+      },
+      {
+        "title": "Mastering Kotlin Structured Concurrency: A Beginner-Friendly Guide with MVVM Examples",
+        "description": "Learn the essentials of structured concurrency in Kotlin, with practical MVVM code samples for robust and maintainable Android apps.",
+        "url": "https://medium.com/@solankizeel91/mastering-kotlin-structured-concurrency-a-beginner-friendly-guide-with-mvvm-examples-9436d386bf12",
+        "icon": "fab fa-medium",
+        "delay": 100
+      },
+      {
+        "title": "My Journey as a Developer and Code Reviewer",
+        "description": "Insights and lessons learned from years of hands-on development and code review in professional Android projects.",
+        "url": "https://medium.com/@solankizeel91/my-journey-as-a-developer-and-code-reviewer-6f857ae2ecfc",
+        "icon": "fab fa-medium",
+        "delay": 200
+      },
+      {
+        "title": "Flowing with Kotlin: Unraveling the Magic of Hot and Cold Flows",
+        "description": "A technical guide to understanding and using hot and cold flows in Kotlin for reactive and asynchronous programming.",
+        "url": "https://medium.com/@solankizeel91/flowing-with-kotlin-unraveling-the-magic-of-hot-and-cold-flows-0b1bd2e9527c",
+        "icon": "fab fa-medium",
+        "delay": 300
+      },
+      {
+        "title": "Mastering SOLID Principles: A Practical Guide for Android Developers",
+        "description": "Practical strategies for applying SOLID principles to write clean, scalable, and testable Android code.",
+        "url": "https://medium.com/@solankizeel91/mastering-solid-principles-a-practical-guide-for-android-developers-9952f8a7a88c",
+        "icon": "fab fa-medium",
+        "delay": 400
+      }
+    ]
+  },
+  "achievements": {
+    "title": "Key Achievements",
+    "items": [
+      {
+        "icon": "fas fa-layer-group",
+        "title": "Architecture Excellence",
+        "description": "Developed and implemented modularization architecture resulting in:",
+        "metrics": [
+          {
+            "value": "40%",
+            "text": "reduction in bugs"
+          },
+          {
+            "value": "60%",
+            "text": "improved scalability"
+          },
+          {
+            "value": "50%",
+            "text": "faster feature integration"
+          }
+        ],
+        "tags": ["Architecture", "Innovation"],
+        "delay": 100
+      },
+      {
+        "icon": "fas fa-shield-alt",
+        "title": "Application Stability",
+        "description": "Enhanced application performance and reliability through:",
+        "metrics": [
+          {
+            "value": "80%",
+            "text": "decrease in crashes"
+          },
+          {
+            "value": "65%",
+            "text": "improved response time"
+          },
+          {
+            "value": "45%",
+            "text": "reduction in ANR rates"
+          }
+        ],
+        "tags": ["Performance", "Stability"],
+        "delay": 200
+      },
+      {
+        "icon": "fas fa-code-branch",
+        "title": "SDK Implementation",
+        "description": "Successfully led multi-module SDK development:",
+        "metrics": [
+          {
+            "value": "5+",
+            "text": "company applications integrated"
+          },
+          {
+            "value": "90%",
+            "text": "code reusability achieved"
+          },
+          {
+            "value": "60%",
+            "text": "faster development cycle"
+          }
+        ],
+        "tags": ["SDK", "Leadership"],
+        "delay": 300
+      }
+    ]
+  },
+  "certifications": {
+    "title": "Certifications & Training",
+    "items": [
+      {
+        "icon": "fas fa-certificate",
+        "title": "Android Development",
+        "description": "Advanced Android Development Certification"
+      },
+      {
+        "icon": "fas fa-award",
+        "title": "Kotlin Development",
+        "description": "Kotlin Development Mastery"
+      }
+    ]
+  },
+  "education": {
+    "title": "Education Journey",
+    "items": [
+      {
+        "degree": "Master of Computer Applications (MCA)",
+        "years": "2019 - 2022",
+        "institution": "Suresh Gyan Vihar University, Jaipur",
+        "tags": ["Computer Science", "Advanced Programming", "Software Development"],
+        "achievements": [
+          "Specialized in Advanced Mobile Development",
+          "Research in Modern Software Architecture",
+          "Android Development Projects"
+        ],
+        "delay": 0
+      },
+      {
+        "degree": "Bachelor of Computer Applications (BCA)",
+        "years": "2016 - 2019",
+        "institution": "Sutex Bank College of Computer Application and Science, Surat",
+        "tags": ["Programming Fundamentals", "Web Development", "Database Management"],
+        "achievements": [
+          "Foundation in Computer Science",
+          "Core Programming Concepts",
+          "Software Development Basics"
+        ],
+        "delay": 200
+      }
+    ]
+  },
+  "workProcess": {
+    "title": "My Work Process",
+    "steps": [
+      {
+        "icon": "fas fa-lightbulb",
+        "title": "1. Research & Planning",
+        "description": "Thorough analysis of requirements and creating detailed technical specifications"
+      },
+      {
+        "icon": "fas fa-code",
+        "title": "2. Development",
+        "description": "Clean code implementation following best practices and design patterns"
+      },
+      {
+        "icon": "fas fa-vial",
+        "title": "3. Testing",
+        "description": "Comprehensive testing including unit tests and integration tests"
+      },
+      {
+        "icon": "fas fa-rocket",
+        "title": "4. Deployment",
+        "description": "Smooth deployment with CI/CD pipelines and monitoring"
+      }
+    ]
+  },
+  "statistics": {
+    "title": "Career Statistics",
+    "items": [
+      {
+        "icon": "fas fa-mobile-alt",
+        "value": "20+",
+        "label": "Apps Developed"
+      },
+      {
+        "icon": "fas fa-code-branch",
+        "value": "5+",
+        "label": "SDKs Created"
+      },
+      {
+        "icon": "fas fa-users",
+        "value": "10+",
+        "label": "Team Members Led"
+      },
+      {
+        "icon": "fas fa-star",
+        "value": "6+",
+        "label": "Years Experience"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "contactInfo": [
+      {
+        "icon": "fas fa-envelope",
+        "title": "Email",
+        "value": "solankizeel91@gmail.com"
+      },
+      {
+        "icon": "fas fa-phone",
+        "title": "Phone",
+        "value": "+91 97238 72353"
+      },
+      {
+        "icon": "fas fa-map-marker-alt",
+        "title": "Location",
+        "value": "Surat, Gujarat, India"
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2025 Zeel Solanki. All rights reserved.",
+    "socialLinks": [
+      {
+        "icon": "fab fa-linkedin",
+        "url": "https://www.linkedin.com/in/zeelsolanki/"
+      },
+      {
+        "icon": "fab fa-github",
+        "url": "http://github.com/sz32"
+      }
+    ]
+  }
+}
+

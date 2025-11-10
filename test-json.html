@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio JSON Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+        }
+        .success {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .error {
+            color: #f44336;
+            font-weight: bold;
+        }
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        pre {
+            background: #263238;
+            color: #aed581;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .data-display {
+            margin: 10px 0;
+        }
+        .data-display strong {
+            color: #1976d2;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li:before {
+            content: "✓ ";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Portfolio JSON Configuration Test</h1>
+
+        <div class="info">
+            <strong>Status:</strong> <span id="loadStatus">Loading...</span>
+        </div>
+
+        <h2>📊 Loaded Data Summary</h2>
+        <div id="dataSummary" class="section">
+            <p>Loading data from portfolio-data.json...</p>
+        </div>
+
+        <h2>🔧 How to Update Your Portfolio</h2>
+        <div class="section">
+            <ul>
+                <li>Open <code>portfolio-data.json</code> file</li>
+                <li>Edit any content (name, skills, projects, etc.)</li>
+                <li>Save the file</li>
+                <li>Refresh your portfolio page</li>
+                <li>Changes appear automatically!</li>
+            </ul>
+        </div>
+
+        <h2>📝 Example: Changing Section Order</h2>
+        <div class="section">
+            <p>Current section order:</p>
+            <div id="sectionOrder"></div>
+            <p style="margin-top: 15px;"><em>Edit the "sectionOrder" array in portfolio-data.json to rearrange sections on your portfolio.</em></p>
+        </div>
+
+        <h2>📋 JSON Structure Overview</h2>
+        <div id="structureOverview" class="section"></div>
+
+        <h2>🎨 Sample Customizations</h2>
+        <div class="section">
+            <h3>Add a new skill:</h3>
+            <pre>{
+  "skills": {
+    "categories": [
+      {
+        "name": "New Category",
+        "items": ["Skill 1", "Skill 2"]
+      }
+    ]
+  }
+}</pre>
+
+            <h3>Add a new project:</h3>
+            <pre>{
+  "projects": {
+    "items": [
+      {
+        "name": "My New Project",
+        "type": "regular",
+        "description": "Project description",
+        "responsibilities": ["Task 1", "Task 2"]
+      }
+    ]
+  }
+}</pre>
+
+            <h3>Update profile information:</h3>
+            <pre>{
+  "profile": {
+    "name": "Your Name",
+    "title": "Your Title",
+    "description": "Your bio..."
+  }
+}</pre>
+        </div>
+    </div>
+
+    <script>
+        async function testPortfolioData() {
+            try {
+                const response = await fetch('portfolio-data.json');
+                const data = await response.json();
+
+                // Update status
+                document.getElementById('loadStatus').innerHTML = '<span class="success">✓ JSON loaded successfully!</span>';
+
+                // Display summary
+                const summary = document.getElementById('dataSummary');
+                summary.innerHTML = `
+                    <div class="data-display"><strong>Profile Name:</strong> ${data.profile.name}</div>
+                    <div class="data-display"><strong>Title:</strong> ${data.profile.title}</div>
+                    <div class="data-display"><strong>Total Sections:</strong> ${data.sectionOrder.length}</div>
+                    <div class="data-display"><strong>Skills Categories:</strong> ${data.skills.categories.length}</div>
+                    <div class="data-display"><strong>Work Experiences:</strong> ${data.experience.jobs.length}</div>
+                    <div class="data-display"><strong>Projects:</strong> ${data.projects.items.length}</div>
+                    <div class="data-display"><strong>Blog Posts:</strong> ${data.blog.posts.length}</div>
+                    <div class="data-display"><strong>Achievements:</strong> ${data.achievements.items.length}</div>
+                    <div class="data-display"><strong>Education:</strong> ${data.education.items.length}</div>
+                `;
+
+                // Display section order
+                const sectionOrder = document.getElementById('sectionOrder');
+                sectionOrder.innerHTML = '<pre>' + JSON.stringify(data.sectionOrder, null, 2) + '</pre>';
+
+                // Display structure overview
+                const structure = document.getElementById('structureOverview');
+                const sections = Object.keys(data).filter(key => !['meta', 'sectionOrder', 'navigation'].includes(key));
+                structure.innerHTML = `
+                    <p><strong>Available sections in JSON:</strong></p>
+                    <ul>
+                        ${sections.map(section => `<li>${section}</li>`).join('')}
+                    </ul>
+                `;
+
+            } catch (error) {
+                document.getElementById('loadStatus').innerHTML = '<span class="error">✗ Error loading JSON: ' + error.message + '</span>';
+                console.error('Error:', error);
+            }
+        }
+
+        // Run test on page load
+        testPortfolioData();
+    </script>
+</body>
+</html>
+

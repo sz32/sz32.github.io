@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="nav-styles.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="nav-script.js" defer></script>
+    <script src="portfolio-loader.js"></script>
+    <script src="nav-script.js" defer></script>
     <script src="contact-form.js" defer></script>
 </head>
 <body>
@@ -695,24 +696,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
+        // Initialize AOS animations
         AOS.init({
             duration: 1000,
             once: true,
             offset: 200
-        });
-
-        // Typed.js initialization
-        var typed = new Typed('#typed', {
-            strings: [
-                'Android Developer',
-                'SDK Developer',
-                'Team Leader',
-                'Problem Solver'
-            ],
-            typeSpeed: 50,
-            backSpeed: 30,
-            backDelay: 1500,
-            loop: true
         });
     </script>
 </body>

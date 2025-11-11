@@ -111,17 +111,16 @@ function renderSkills(skills, tools) {
         </div>
     `;
 
-    // Add tools section after skills
-    const toolsSection = document.createElement('section');
-    toolsSection.className = 'tools';
-    toolsSection.setAttribute('data-aos', 'fade-up');
-    toolsSection.innerHTML = `
-        <h2>${tools.title}</h2>
-        <div class="tools-grid">
-            ${toolsHTML}
-        </div>
-    `;
-    skillsSection.parentNode.insertBefore(toolsSection, skillsSection.nextSibling);
+    // Update existing tools section instead of creating a new one
+    const toolsSection = document.getElementById('tools');
+    if (toolsSection) {
+        toolsSection.innerHTML = `
+            <h2>${tools.title}</h2>
+            <div class="tools-grid">
+                ${toolsHTML}
+            </div>
+        `;
+    }
 }
 
 // Render Experience Section
@@ -455,6 +454,9 @@ async function initPortfolio() {
     if (typeof AOS !== 'undefined') {
         AOS.refresh();
     }
+
+    // Dispatch custom event to notify that portfolio is loaded
+    window.dispatchEvent(new CustomEvent('portfolioLoaded'));
 
     console.log('Portfolio loaded successfully from JSON!');
 }

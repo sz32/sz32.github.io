@@ -6,6 +6,7 @@
   "sectionOrder": [
     "profile",
     "skills",
+    "tools",
     "experience",
     "projects",
     "blog",
@@ -26,6 +27,11 @@
       "id": "skills",
       "label": "Skills",
       "icon": "fas fa-code"
+    },
+    {
+      "id": "tools",
+      "label": "Development Tools",
+      "icon": "fas fa-tools"
     },
     {
       "id": "experience",
@@ -339,6 +345,45 @@
           "Provided support and maintenance for mobile applications",
           "Collaborated with diverse team members to deliver exceptional results"
         ]
+      },
+      {
+        "company": "Iroid Solutions",
+        "location": "Surat",
+        "position": "Intermediate Android Developer",
+        "duration": "Dec 2019 - Feb 2021",
+        "responsibilities": [
+          "Contributed to the development of Android mobile applications- Worked on the design",
+          "and implementation of new features",
+          "Implemented third-party libraries and APIs to enhance application functionality",
+          "Troubleshoot and resolved app bugs and performance issues",
+          "Published apps to the Google Play Store"
+        ]
+      },
+      {
+        "company": "Murait",
+        "location": "Surat",
+        "position": "Junior Android Developer",
+        "duration": "June 2019 - Nov 2019",
+        "responsibilities": [
+          "New product development",
+          "Products improvement and feature development",
+          "Determined architecture and product design details specifications",
+          "Review design specs, solution architecture, and engineering docs for different teams/projects",
+          "Successfully completed training on Android app development"
+        ]
+      },
+      {
+        "company": "Genysis",
+        "location": "Surat",
+        "position": "Junior Android Developer",
+        "duration": "May 2018 - March 2019",
+        "responsibilities": [
+          "Assisted in the development and testing of mobile applications under the guidance of",
+          "senior developers.",
+          "Gained hands-on experience in building user interfaces, implementing functionalities, and",
+          "troubleshooting issues.",
+          "Collaborated with team members to meet project deadlines and deliver high-quality applications."
+        ]
       }
     ]
   },
@@ -501,7 +546,10 @@
             "text": "faster feature integration"
           }
         ],
-        "tags": ["Architecture", "Innovation"],
+        "tags": [
+          "Architecture",
+          "Innovation"
+        ],
         "delay": 100
       },
       {
@@ -522,7 +570,10 @@
             "text": "reduction in ANR rates"
           }
         ],
-        "tags": ["Performance", "Stability"],
+        "tags": [
+          "Performance",
+          "Stability"
+        ],
         "delay": 200
       },
       {
@@ -543,7 +594,10 @@
             "text": "faster development cycle"
           }
         ],
-        "tags": ["SDK", "Leadership"],
+        "tags": [
+          "SDK",
+          "Leadership"
+        ],
         "delay": 300
       }
     ]
@@ -570,7 +624,11 @@
         "degree": "Master of Computer Applications (MCA)",
         "years": "2019 - 2022",
         "institution": "Suresh Gyan Vihar University, Jaipur",
-        "tags": ["Computer Science", "Advanced Programming", "Software Development"],
+        "tags": [
+          "Computer Science",
+          "Advanced Programming",
+          "Software Development"
+        ],
         "achievements": [
           "Specialized in Advanced Mobile Development",
           "Research in Modern Software Architecture",
@@ -582,7 +640,11 @@
         "degree": "Bachelor of Computer Applications (BCA)",
         "years": "2016 - 2019",
         "institution": "Sutex Bank College of Computer Application and Science, Surat",
-        "tags": ["Programming Fundamentals", "Web Development", "Database Management"],
+        "tags": [
+          "Programming Fundamentals",
+          "Web Development",
+          "Database Management"
+        ],
         "achievements": [
           "Foundation in Computer Science",
           "Core Programming Concepts",

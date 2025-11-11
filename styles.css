@@ -253,18 +253,19 @@ h2::after {
     border-top: 1px solid rgba(52, 152, 219, 0.2);
 }
 
-.ai-benefits span {
+.ai-benefits span{
     background: rgba(52, 152, 219, 0.1);
     color: #3498db;
-    padding: 4px 12px;
+    padding: 5px 12px;
     border-radius: 15px;
     font-size: 0.85rem;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .ai-benefits span:hover {
+    background: #3498db;
+    color: white;
     transform: translateY(-2px);
-    background: rgba(52, 152, 219, 0.2);
 }
 
 .ai-tools li:hover i {
@@ -449,12 +450,19 @@ h2::after {
     gap: 10px;
 }
 
-.tech-stack span {
-    background: #e8f4fc;
+.tech-stack span{
+    background: rgba(52, 152, 219, 0.1);
     color: #3498db;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.tech-stack span:hover {
+    background: #3498db;
+    color: white;
+    transform: translateY(-2px);
 }
 
 /* SDK Showcase Styles */
@@ -1199,7 +1207,7 @@ footer {
     gap: 10px;
     background: linear-gradient(135deg, rgba(231, 76, 60, 0.15), rgba(192, 57, 43, 0.1));
     letter-spacing: 0.5px;
-    border: 2px solid #e74c3c;
+    border: 2px solid #3498db;
     box-shadow: 0 4px 15px rgba(231, 76, 60, 0.2);
 }
 

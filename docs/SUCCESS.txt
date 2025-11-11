@@ -52,15 +52,16 @@
   Current order:
   1. profile
   2. skills
-  3. experience
-  4. projects
-  5. blog
-  6. achievements
-  7. certifications
-  8. education
-  9. work-process
-  10. statistics
-  11. contact
+  3. tools (Development Tools)
+  4. experience
+  5. projects
+  6. blog
+  7. achievements
+  8. certifications
+  9. education
+  10. work-process
+  11. statistics
+  12. contact
 
   💡 Just rearrange this array to change the section order!
 
@@ -90,8 +91,25 @@
 
   • README.md - Main documentation
   • SETUP.md - Detailed setup guide
+  • BUGFIXES.md - Recent bug fixes (Nov 11, 2025)
   • QUICK-REFERENCE.md - Quick tips & examples
   • test-json.html - Interactive test page
+═══════════════════════════════════════════════════════════════
+
+🐛 RECENT BUG FIXES (Nov 11, 2025):
+
+  ✅ Fixed: "Development Tools" section duplication
+     - Added id="tools" to tools section
+     - Updated JSON to include tools in sectionOrder
+     - Fixed rendering logic to update existing section
+
+  ✅ Fixed: Navigation menu not highlighting on scroll
+     - Added portfolioLoaded event system
+     - Navigation now reinitializes after section reordering
+     - Proper timing ensures correct section highlighting
+
+  📝 Details: See docs/BUGFIXES.md for complete information
+
 
 ═══════════════════════════════════════════════════════════════
 

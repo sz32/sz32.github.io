@@ -1,11 +1,38 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all sections and navigation items once
+let navigationInitialized = false;
+let scrollListener = null;
+let resizeListener = null;
+let currentObserver = null;
+
+function initializeNavigation() {
+    console.log('🔄 initializeNavigation called');
+
+    // Clean up previous initialization
+    if (navigationInitialized) {
+        console.log('⚠️ Cleaning up previous navigation initialization');
+        if (scrollListener) window.removeEventListener('scroll', scrollListener);
+        if (resizeListener) window.removeEventListener('resize', resizeListener);
+        if (currentObserver) currentObserver.disconnect();
+    }
+
+    // Get all sections and navigation items (fresh query after reordering)
     const sections = document.querySelectorAll('section[id]');
     const navItems = document.querySelectorAll('.nav-item');
 
-    // Smooth scrolling function with improved animation
+    console.log('📊 Found', sections.length, 'sections and', navItems.length, 'nav items');
+
+    if (sections.length === 0) {
+        console.error('❌ No sections found!');
+        return;
+    }
+
+    if (navItems.length === 0) {
+        console.error('❌ No nav items found!');
+        return;
+    }
+
+    // Smooth scrolling function
     function smoothScroll(targetElement, duration) {
-        const targetPosition = targetElement.offsetTop - 20; // Added small offset for better positioning
+        const targetPosition = targetElement.offsetTop - 20;
         const startPosition = window.pageYOffset;
         const distance = targetPosition - startPosition;
         let startTime = null;
@@ -34,19 +61,16 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
-            
+
             if (targetSection) {
-                // Remove active class from all items and add to clicked item
                 navItems.forEach(nav => nav.classList.remove('active'));
                 this.classList.add('active');
-                
-                // Smooth scroll to target section
                 smoothScroll(targetSection, 200);
             }
         });
     });
 
-    // Calculate section position relative to viewport
+    // Calculate section position
     function getSectionPosition(section) {
         const rect = section.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
@@ -54,39 +78,32 @@ document.addEventListener('DOMContentLoaded', function() {
         const visiblePercentage = Math.max(0, visibleHeight) / viewportHeight;
         const centerPosition = rect.top + (rect.height / 2);
         const distanceFromCenter = Math.abs(centerPosition - (viewportHeight / 2));
-        
-        return {
-            visiblePercentage,
-            distanceFromCenter
-        };
+
+        return { visiblePercentage, distanceFromCenter };
     }
 
-    // Get the most visible section with improved accuracy
+    // Get most visible section
     function getMostVisibleSection() {
         let maxVisibleSection = null;
         let maxVisibility = 0;
-        let minDistance = Infinity;
 
         sections.forEach(section => {
             const { visiblePercentage, distanceFromCenter } = getSectionPosition(section);
-            
-            // Prioritize sections that are both visible and close to the center
             const visibility = visiblePercentage * (1 / (1 + distanceFromCenter * 0.001));
-            
+
             if (visibility > maxVisibility) {
                 maxVisibility = visibility;
                 maxVisibleSection = section;
-                minDistance = distanceFromCenter;
             }
         });
 
         return maxVisibleSection;
     }
 
-    // Update active navigation item
+    // Update active nav item
     function updateActiveNavItem() {
         const currentSection = getMostVisibleSection();
-        
+
         if (currentSection) {
             const currentSectionId = currentSection.getAttribute('id');
             navItems.forEach(item => {
@@ -94,8 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (itemHref === currentSectionId) {
                     if (!item.classList.contains('active')) {
                         item.classList.add('active');
-                        // Add smooth transition effect
-                        item.style.transition = 'all 0.3s ease';
+                        console.log('✨ Active section:', currentSectionId);
                     }
                 } else {
                     item.classList.remove('active');
@@ -104,16 +120,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Throttle function to optimize scroll performance
+    // Throttle function
     function throttle(func, limit) {
         let inThrottle;
         let lastFunc;
         let lastRan;
-        
+
         return function() {
             const context = this;
             const args = arguments;
-            
+
             if (!inThrottle) {
                 func.apply(context, args);
                 lastRan = Date.now();
@@ -130,33 +146,57 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    // Add scroll event listener with improved throttling
-    window.addEventListener('scroll', throttle(updateActiveNavItem, 100));
+    // Add scroll listener
+    scrollListener = throttle(updateActiveNavItem, 100);
+    window.addEventListener('scroll', scrollListener);
 
-    // Add resize event listener to handle window resizing
-    window.addEventListener('resize', throttle(updateActiveNavItem, 100));
+    // Add resize listener
+    resizeListener = throttle(updateActiveNavItem, 100);
+    window.addEventListener('resize', resizeListener);
 
-    // Initial call to set active nav item on page load
+    // Initial call
     updateActiveNavItem();
 
-    // Intersection Observer for optimized performance
+    // Intersection Observer
     const observerOptions = {
         root: null,
         rootMargin: '-10% 0px -10% 0px',
-        threshold: Array.from({ length: 11 }, (_, i) => i * 0.1) // More granular thresholds
+        threshold: Array.from({ length: 11 }, (_, i) => i * 0.1)
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    currentObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Only update if the section is significantly visible
-                if (entry.intersectionRatio > 0.4) {
-                    updateActiveNavItem();
-                }
+            if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                updateActiveNavItem();
             }
         });
     }, observerOptions);
 
     // Observe all sections
-    sections.forEach(section => observer.observe(section));
+    sections.forEach(section => {
+        currentObserver.observe(section);
+    });
+
+    navigationInitialized = true;
+    console.log('✅ Navigation fully initialized');
+}
+
+// Listen for portfolio loaded event
+window.addEventListener('portfolioLoaded', function() {
+    console.log('📢 Portfolio loaded event received');
+    initializeNavigation();
 });
+
+// Fallback for DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('📄 DOM Content Loaded');
+    setTimeout(function() {
+        if (!navigationInitialized) {
+            console.log('⏰ Fallback initialization');
+            initializeNavigation();
+        } else {
+            console.log('✅ Already initialized');
+        }
+    }, 500);
+});
+

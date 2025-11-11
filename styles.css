@@ -54,7 +54,7 @@ h2::after {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,7 +64,8 @@ h2::after {
     width: 100%;
     max-width: none;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    padding: 40px 20px;
 }
 
 .profile-image {
@@ -151,6 +152,63 @@ h2::after {
     line-height: 1.8;
     font-size: 1.1rem;
     text-align: center;
+}
+
+/* Download Resume Button */
+.resume-download {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.download-resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    border: 2px solid transparent;
+}
+
+.download-resume-btn:hover {
+    background: linear-gradient(135deg, #2980b9, #21618c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.download-resume-btn i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.download-resume-btn:hover i {
+    transform: translateY(1px);
+    animation: downloadPulse 1s ease-in-out infinite;
+}
+
+@keyframes downloadPulse {
+    0%, 100% {
+        transform: translateY(1px);
+    }
+    50% {
+        transform: translateY(3px);
+    }
+}
+
+/* Responsive adjustments for resume button */
+@media (max-width: 768px) {
+    .download-resume-btn {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
 }
 
 /* Profile Section */
@@ -253,18 +311,19 @@ h2::after {
     border-top: 1px solid rgba(52, 152, 219, 0.2);
 }
 
-.ai-benefits span {
+.ai-benefits span{
     background: rgba(52, 152, 219, 0.1);
     color: #3498db;
-    padding: 4px 12px;
+    padding: 5px 12px;
     border-radius: 15px;
     font-size: 0.85rem;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .ai-benefits span:hover {
+    background: #3498db;
+    color: white;
     transform: translateY(-2px);
-    background: rgba(52, 152, 219, 0.2);
 }
 
 .ai-tools li:hover i {
@@ -449,12 +508,84 @@ h2::after {
     gap: 10px;
 }
 
-.tech-stack span {
-    background: #e8f4fc;
+.tech-stack span{
+    background: rgba(52, 152, 219, 0.1);
     color: #3498db;
-    padding: 5px 15px;
-    border-radius: 20px;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.tech-stack span:hover {
+    background: #3498db;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Play Store Links Styles */
+.playstore-links {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.playstore-links-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #3DDC84;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.playstore-links-header i {
+    font-size: 1.2rem;
+}
+
+.playstore-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.playstore-link-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #3DDC84, #2BB968);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
     font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(61, 220, 132, 0.3);
+}
+
+.playstore-link-item:hover {
+    background: linear-gradient(135deg, #2BB968, #229954);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(61, 220, 132, 0.4);
+}
+
+.playstore-link-item i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.playstore-link-item:hover i {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .playstore-links-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* SDK Showcase Styles */
@@ -1199,7 +1330,7 @@ footer {
     gap: 10px;
     background: linear-gradient(135deg, rgba(231, 76, 60, 0.15), rgba(192, 57, 43, 0.1));
     letter-spacing: 0.5px;
-    border: 2px solid #e74c3c;
+    border: 2px solid #3498db;
     box-shadow: 0 4px 15px rgba(231, 76, 60, 0.2);
 }
 

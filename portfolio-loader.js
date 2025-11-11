@@ -29,6 +29,16 @@ function renderNavigation(navigation) {
 // Render Profile Section
 function renderProfile(profile) {
     const profileSection = document.getElementById('profile');
+
+    const resumeButton = profile.resumeUrl ? `
+        <div class="resume-download">
+            <a href="${profile.resumeUrl}" class="download-resume-btn" download target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-download"></i>
+                <span>Download Resume</span>
+            </a>
+        </div>
+    ` : '';
+
     profileSection.innerHTML = `
         <div class="hero-content">
             <div class="profile-image" data-aos="zoom-in">
@@ -47,6 +57,7 @@ function renderProfile(profile) {
             <div class="profile-description" data-aos="fade-up" data-aos-delay="400">
                 <p>${profile.description}</p>
             </div>
+            ${resumeButton}
         </div>
     `;
 

@@ -54,7 +54,7 @@ h2::after {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,7 +64,8 @@ h2::after {
     width: 100%;
     max-width: none;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    padding: 40px 20px;
 }
 
 .profile-image {
@@ -151,6 +152,63 @@ h2::after {
     line-height: 1.8;
     font-size: 1.1rem;
     text-align: center;
+}
+
+/* Download Resume Button */
+.resume-download {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.download-resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    border: 2px solid transparent;
+}
+
+.download-resume-btn:hover {
+    background: linear-gradient(135deg, #2980b9, #21618c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.download-resume-btn i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.download-resume-btn:hover i {
+    transform: translateY(1px);
+    animation: downloadPulse 1s ease-in-out infinite;
+}
+
+@keyframes downloadPulse {
+    0%, 100% {
+        transform: translateY(1px);
+    }
+    50% {
+        transform: translateY(3px);
+    }
+}
+
+/* Responsive adjustments for resume button */
+@media (max-width: 768px) {
+    .download-resume-btn {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
 }
 
 /* Profile Section */

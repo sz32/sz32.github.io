@@ -146,6 +146,23 @@ function renderProjects(projects) {
     const projectsSection = document.getElementById('projects');
 
     const projectsHTML = projects.items.map(project => {
+        const playstoreLink = project.playstoreUrl && project.playstoreUrl.length > 0 ? `
+            <div class="playstore-links">
+                <div class="playstore-links-header">
+                    <i class="fab fa-google-play"></i>
+                    <span>Available on Google Play</span>
+                </div>
+                <div class="playstore-links-grid">
+                    ${project.playstoreUrl.map(app => `
+                        <a href="${app.url}" target="_blank" rel="noopener noreferrer" class="playstore-link-item">
+                            <i class="fab fa-google-play"></i>
+                            <span>${app.label}</span>
+                        </a>
+                    `).join('')}
+                </div>
+            </div>
+        ` : '';
+
         if (project.type === 'sdk-showcase') {
             return `
                 <div class="project-card sdk-showcase" data-aos="fade-up">
@@ -173,6 +190,7 @@ function renderProjects(projects) {
                             </div>
                         `).join('')}
                     </div>
+                    ${playstoreLink}
                 </div>
             `;
         } else {
@@ -183,6 +201,7 @@ function renderProjects(projects) {
                     <ul>
                         ${project.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
                     </ul>
+                    ${playstoreLink}
                 </div>
             `;
         }

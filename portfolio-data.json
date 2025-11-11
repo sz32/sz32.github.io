@@ -103,7 +103,8 @@
         "value": "Surat, Gujarat"
       }
     ],
-    "description": "Highly skilled and experienced Android developer with 6+ years of experience in developing and designing mobile applications. Proficient in Java and Kotlin, with a strong understanding of Android SDK and mobile development best practices. Experience in Agile development methodologies. Strong problem-solving skills and ability to work well in a team environment."
+    "description": "Highly skilled and experienced Android developer with 6+ years of experience in developing and designing mobile applications. Proficient in Java and Kotlin, with a strong understanding of Android SDK and mobile development best practices. Experience in Agile development methodologies. Strong problem-solving skills and ability to work well in a team environment.",
+    "resumeUrl": ""
   },
   "skills": {
     "title": "Technical Skills",
@@ -471,6 +472,39 @@
             "value": "80%",
             "label": "Fewer Crashes"
           }
+        ],
+        "playstoreUrl": [
+          {
+            "label": "AnswerConnect",
+            "url": "https://play.google.com/store/apps/details?id=com.answerconnect.mobile"
+          },
+          {
+            "label": "Setmore",
+            "url": "https://play.google.com/store/apps/details?id=com.adaptavant.setmore"
+          },
+          {
+            "label": "Anywhere App",
+            "url": "https://play.google.com/store/apps/details?id=com.full.aw"
+          },
+          {
+            "label": "AnswerForce",
+            "url": "https://play.google.com/store/apps/details?id=com.answerforce.mobile"
+          }
+        ]
+      },
+      {
+        "name": "Uphabit",
+        "type": "regular",
+        "description": "UpHabit is an Personal CRM for Business solution for Professionals who build relationships to generate business",
+        "responsibilities": [
+          "Implemented Syncing with CRM platforms",
+          "Implemented Automated workflows for deployment"
+        ],
+        "playstoreUrl": [
+            {
+                "label": "Uphabit - Personal CRM",
+                "url": "https://play.google.com/store/apps/details?id=com.uphabit.android"
+            }
         ]
       },
       {
@@ -481,7 +515,8 @@
           "Implemented Bluetooth Core connections",
           "Handled BLE characteristics and descriptors",
           "Developed features for hardware interaction"
-        ]
+        ],
+        "playstoreUrl": []
       }
     ]
   },

@@ -465,6 +465,71 @@ h2::after {
     transform: translateY(-2px);
 }
 
+/* Play Store Links Styles */
+.playstore-links {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.playstore-links-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #3DDC84;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.playstore-links-header i {
+    font-size: 1.2rem;
+}
+
+.playstore-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.playstore-link-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #3DDC84, #2BB968);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(61, 220, 132, 0.3);
+}
+
+.playstore-link-item:hover {
+    background: linear-gradient(135deg, #2BB968, #229954);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(61, 220, 132, 0.4);
+}
+
+.playstore-link-item i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.playstore-link-item:hover i {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .playstore-links-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* SDK Showcase Styles */
 .sdk-showcase {
     padding: 40px !important;

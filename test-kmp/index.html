@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeel Solanki - Senior Software Engineer - KMP Version</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../images/profile.jpg">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .loading-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 24px;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="loading-screen">
+            <div>
+                <i class="fas fa-spinner fa-spin"></i> Loading Kotlin Multiplatform Portfolio...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize AOS animations after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    offset: 200
+                });
+            }
+        });
+    </script>
+
+    <!-- Load the compiled Kotlin/JS application -->
+    <script src="portfolio.js"></script>
+</body>
+</html>
+

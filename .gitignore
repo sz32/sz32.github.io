@@ -1,2 +1,28 @@
-.DS_Store
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
 .idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# KMP Build Output
+jsNodeModules/
+kotlin-js-store/
+
+# Build directories
+out/
+target/
+
+# Local configuration
+local.properties
+

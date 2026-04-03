@@ -1,5 +1,5 @@
 // Google Apps Script Web App URL (you'll need to replace this with your actual URL)
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxkg3RMgdbQfwirZyNbO1gvpV9TLOacqBigUml-HHcTds1SSyyQSug-9hSBA4PeNbvIFQ/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwa7KNGIy12nsUrz0o4KVbXERKRdWMSFlr6ZZKUEpj3hIziK05GOT4q3UY7Vs5S3gH_rg/exec';
 
 async function handleSubmit(event) {
     event.preventDefault();
